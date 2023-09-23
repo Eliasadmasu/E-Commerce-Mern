@@ -1,7 +1,7 @@
 import UserModel from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import "dotenv/config.js";
-import jwt, { decode } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import {
   generateAccessToken,
   generateRefreshToken,
@@ -86,11 +86,11 @@ const UserLogin = async (req, res) => {
 
     //generating accesstoken adn refreshtoken
     //
-    const role = existingUser.role;
+    // const role = existingUser.role;
+    const userId = existingUser._id;
     //
-    console.log({ role });
-    const accessToken = generateAccessToken(role);
-    const refreshToken = generateRefreshToken(role);
+    const accessToken = generateAccessToken(userId);
+    const refreshToken = generateRefreshToken(userId);
 
     return res.status(200).json({ accessToken, refreshToken, existingUser });
   } catch (error) {
@@ -121,8 +121,7 @@ const refreshToken = async (req, res) => {
       return res.status(401).json({ message: "Invalid refresh token." });
     }
     console.log({ decodedfromrefreshtokn: decoded.userId });
-    const accessToken = generateAccessToken({ userId: decoded.userId });
-    console.log("newaccessTokenGenerated", accessToken);
+    const accessToken = generateAccessToken({ decodedRt: decoded });
     res.json({ accessToken });
   });
 };
