@@ -4,18 +4,20 @@ import "dotenv/config";
 // Secret key to sign and verify tokens
 
 // Function to generate an access token
-function generateAccessToken(userId) {
+function generateAccessToken(user) {
   // Payload includes user ID and any other necessary data
-  console.log({ IdAcc: userId });
-  return jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, {
+
+  console.log(user);
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
     expiresIn: "15m",
   });
 }
 
 // Function to generate a refresh token
-function generateRefreshToken(userId) {
-  const payload = { IdRT: userId };
-  return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+
+function generateRefreshToken(user) {
+  console.log(user);
+  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: "7d",
   });
 }
