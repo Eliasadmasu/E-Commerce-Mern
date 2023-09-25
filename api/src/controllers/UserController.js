@@ -86,11 +86,11 @@ const UserLogin = async (req, res) => {
 
     //generating accesstoken adn refreshtoken
     //
-    // const role = existingUser.role;
-    const userId = existingUser._id;
+    const role = existingUser.role;
+    const Id = existingUser._id.toJSON();
     //
-    const accessToken = generateAccessToken(userId);
-    const refreshToken = generateRefreshToken(userId);
+    const accessToken = generateAccessToken({ role, Id });
+    const refreshToken = generateRefreshToken({ role, Id });
 
     return res.status(200).json({ accessToken, refreshToken, existingUser });
   } catch (error) {
@@ -120,8 +120,14 @@ const refreshToken = async (req, res) => {
     if (err) {
       return res.status(401).json({ message: "Invalid refresh token." });
     }
-    console.log({ decodedfromrefreshtokn: decoded.userId });
-    const accessToken = generateAccessToken({ decodedRt: decoded });
+    console.log({
+      decodedRtRole: decoded.role,
+      decodedRtId: decoded.Id,
+    });
+    const accessToken = generateAccessToken({
+      decodedRtRole: decoded.role,
+      decodedRtId: decoded.Id,
+    });
     res.json({ accessToken });
   });
 };
