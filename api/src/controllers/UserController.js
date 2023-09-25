@@ -86,6 +86,7 @@ const UserLogin = async (req, res) => {
 
     //generating accesstoken adn refreshtoken
     //
+
     const role = existingUser.role;
     const Id = existingUser._id.toJSON();
     //
@@ -120,6 +121,7 @@ const refreshToken = async (req, res) => {
     if (err) {
       return res.status(401).json({ message: "Invalid refresh token." });
     }
+
     console.log({
       decodedRtRole: decoded.role,
       decodedRtId: decoded.Id,
