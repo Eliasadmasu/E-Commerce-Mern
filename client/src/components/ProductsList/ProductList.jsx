@@ -27,6 +27,7 @@ const ProductList = () => {
   const searchedProduct = async ({ query }) => {
     try {
       setLoading(true);
+      axios.defaults.withCredentials = true;
       const response = await axios.get(`${API_URL}/product/search`, {
         params: { query }, // This should use searchQuery
       });

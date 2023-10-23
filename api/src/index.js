@@ -18,7 +18,7 @@ connectToDatabase();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "http://localhost:3000", // Allow requests from localhost:3000
+  origin: "http://localhost:3000/", // Allow requests from localhost:3000
   credentials: true, // Enable CORS credentials (e.g., cookies)
 };
 
