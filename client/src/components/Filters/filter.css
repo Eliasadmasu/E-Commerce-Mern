@@ -1,0 +1,23 @@
+.filterMain {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(251, 255, 254);
+  height: 100vh;
+  width: 100%;
+}
+.fitlerTitle {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+}
+.filterPriceCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.filterPriceCont > .btn {
+  padding: 5px 10px;
+}

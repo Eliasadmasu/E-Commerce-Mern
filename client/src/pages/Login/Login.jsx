@@ -13,7 +13,7 @@ const Login = () => {
   });
   const [error, setError] = useState("");
   const { username, password } = formData;
-  const { isSignUp, setIsSignUp, setAccessToken, setRefreshToken } =
+  const { isSignUp, setIsSignUp, setAccessToken, setRefreshToken, setRole } =
     useAuthContext();
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Login = () => {
       });
       if (response.status === 200) {
         console.log(response);
-        const { accessToken, refreshToken } = response.data;
+        const { accessToken, refreshToken, role } = response.data;
 
         //set accessstoken
         Cookies.set("accessToken", accessToken, {
@@ -43,6 +43,11 @@ const Login = () => {
           expires: 7,
           secure: true,
         });
+        //set role
+        Cookies.set("role", role, {
+          expires: 7,
+          secure: true,
+        });
 
         const storedAccessToken = Cookies.get("accessToken");
         setAccessToken(storedAccessToken);
@@ -50,6 +55,7 @@ const Login = () => {
         const storedRefreshToken = Cookies.get("refreshToken");
         setRefreshToken(storedRefreshToken);
 
+        setRole(role);
         setError("");
         setIsSignUp(false);
         navigate("/");
@@ -72,7 +78,7 @@ const Login = () => {
       )}
       <form
         onSubmit={handleSubmit}
-        className="border-2 border-solid flex flex-col justify-center w-2/6 items-center gap-2 rounded-2xl p-5 "
+        className="border-2 border-solid flex flex-col justify-center w-2/6 items-center gap-2 rounded-2xl p-5  bg-white"
       >
         <div className="text-red-600 font-semibold">{error}</div>
         <h2 className="text-2xl mb-1">Sign in</h2>
@@ -84,7 +90,7 @@ const Login = () => {
           <input
             type="text"
             id="username"
-            className="border w-full rounded-md p-1 outline-cyan-300"
+            className=" w-full rounded-md p-3 outline-cyan-300"
             name="username"
             value={username}
             onChange={handleChange}

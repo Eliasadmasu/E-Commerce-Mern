@@ -1,0 +1,127 @@
+.MainWrapperDashBoard {
+  padding: 20px;
+}
+.totalPercent {
+  background-color: rgb(223, 223, 223);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 10px;
+}
+.progress-bar {
+  background: linear-gradient(
+    90deg,
+    rgba(46, 15, 250, 1) 0%,
+    rgba(130, 229, 238, 1) 74%
+  );
+}
+.progressBarCont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.totalRevenue {
+  background-color: rgb(255, 255, 255);
+  width: 500px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.totalNumCont {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.totalNum {
+  display: flex;
+  flex-direction: column;
+}
+.NumberTot {
+  color: rgb(0, 0, 87);
+  font-size: 25px;
+}
+.thisMonth {
+  background-color: #0356af;
+  height: 30px;
+  padding: 3px;
+  border-radius: 5px;
+  color: white;
+}
+.totalNum :first-child {
+  color: rgb(71, 71, 71);
+  font-weight: 500;
+}
+.flexedPercent {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  height: 100px;
+}
+.DashboardPercentCont {
+  display: flex;
+  flex-direction: column;
+}
+.dashboardTitle {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+/* 
+ */
+/* 
+  */
+/* 
+   */
+/* 
+    bar*/
+.lineChartCont {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: white;
+}
+/* 
+     */
+/* 
+      */
+/* 
+       */
+/* 
+recent*/
+.recentPurchaseWrapper {
+  background-color: #ffffff;
+  width: 300px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.toTcrACont {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.toTcrACont.second {
+  width: 250px;
+  /* background-color: #0356af; */
+  justify-content: space-between;
+}
+.recentTime {
+  font-size: 18px;
+  font-weight: 500;
+  color: #14256a;
+}
+.recentPurchaseNum {
+  color: #51a8ff;
+}
+/*  */
+.CustomreAndRecentCont {
+  display: flex;
+}
+.lineChartContCustomer {
+  width: 100%;
+}

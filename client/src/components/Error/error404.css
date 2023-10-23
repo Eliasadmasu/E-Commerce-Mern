@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+.notfoundCont {
+  height: 100vh;
+  background-color: rgb(112, 163, 159);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgTxt {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.txtnotfound {
+  font-size: 30px;
+  font-family: "Dela Gothic One", cursive;
+  color: #35284b;
+}

@@ -7,7 +7,6 @@ import "dotenv/config";
 function generateAccessToken(user) {
   // Payload includes user ID and any other necessary data
 
-  console.log(user);
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
     expiresIn: "15m",
   });
@@ -16,7 +15,6 @@ function generateAccessToken(user) {
 // Function to generate a refresh token
 
 function generateRefreshToken(user) {
-  console.log(user);
   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: "7d",
   });

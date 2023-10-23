@@ -1,0 +1,87 @@
+.profileWrapper {
+  padding: 20px;
+  height: 250px;
+}
+.imageProfile {
+  width: 300px;
+}
+.profileCont {
+  display: flex;
+  gap: 10px;
+}
+.profileandUsernameCont {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.secondaryTxtProfile {
+  color: gray;
+}
+.secondCont {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  width: 500px;
+  gap: 10px;
+}
+.prodetailcont {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px gray solid;
+  padding: 5px;
+}
+.prodetailcont > input {
+  padding: 5px;
+  border-radius: 4px;
+  outline: 0.5px solid rgb(37, 201, 207);
+}
+.prodetailcont > div {
+  width: 50%;
+  font-weight: 500;
+}
+.prodetailcont > span {
+  width: 50%;
+}
+.UpdateBtn {
+  display: flex;
+  justify-content: center;
+}
+.UpdateBtn > button {
+  background-color: rgb(15, 165, 145);
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+.SaveChangeBtn {
+  background-color: rgb(34, 184, 184);
+  padding: 3px;
+  border-radius: 10px;
+  color: white;
+}
+.secondCont.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.secondCont select {
+  border: 0.5px solid rgb(37, 201, 207);
+  border-radius: 5px;
+}
+.DiscardeBtn {
+  background-color: rgb(184, 52, 34);
+  padding: 3px;
+  border-radius: 10px;
+  color: white;
+}
+.logoutBtn {
+  background-color: rgb(184, 52, 34);
+  padding: 3px;
+  border-radius: 10px;
+  color: white;
+}

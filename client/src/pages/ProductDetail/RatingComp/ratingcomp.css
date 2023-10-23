@@ -1,0 +1,10 @@
+.submitratingBtn {
+  font-size: 15px;
+  background-color: darkcyan;
+  padding: 3px;
+  border-radius: 10px;
+  color: white;
+}
+.ratingCont {
+  padding: 10px;
+}

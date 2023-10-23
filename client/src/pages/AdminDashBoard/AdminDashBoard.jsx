@@ -3,26 +3,20 @@ import axios from "axios";
 import API_URL from "../../config/config";
 import generateNewAccessToken from "../../config/generateRefreshToken";
 import Cookies from "js-cookie";
+import "./adminDashBoard.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // import styles
 
 const AdminDashBoard = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [selectedImages, setSelectedImages] = useState([null, null]);
-
-  const handleImageChange = (e, index) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const newImages = [...selectedImages];
-        newImages[index] = e.target.result;
-        setSelectedImages(newImages);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  const [file, setFile] = useState([]);
+  const [aboutitem, setAboutitem] = useState("");
+  const [productinfo, setProductinfo] = useState("");
+  const [fileLimites, setFileLimites] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,13 +25,14 @@ const AdminDashBoard = () => {
 
     formData.append("name", name);
     formData.append("description", description);
+    formData.append("aboutitem", aboutitem);
+    formData.append("productinfo", productinfo);
     formData.append("price", price);
     formData.append("category", category);
 
-    selectedImages.forEach((imageData, index) => {
-      if (imageData) {
-        formData.append(`image${index + 1}`, imageData);
-      }
+    //append the file
+    file.forEach((photo) => {
+      formData.append(`imageUrl`, photo);
     });
 
     try {
@@ -54,143 +49,159 @@ const AdminDashBoard = () => {
         },
       });
       console.log(response);
+      if (response.status === 201) {
+        setMessage(response.data.message);
+      }
     } catch (error) {
       console.error("Error creating product:", error);
     }
   };
 
+  const handleFile = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFile(selectedFiles);
+
+    if (selectedFiles.length > 5) {
+      setFileLimites("Please select up to 5 files.");
+      setFile([]);
+    } else {
+      setFileLimites(""); // Clear any previous error message
+      setFile(selectedFiles);
+    }
+  };
+
+  const handleAboutItemChange = (value) => {
+    setAboutitem(value);
+  };
+  const handleInfoChange = (value) => {
+    setProductinfo(value);
+  };
+  const handleDescChange = (value) => {
+    setDescription(value);
+  };
+
   return (
-    <div className="w-full overflow-hidden h-screen flex justify-center items-center bg-slate-200">
+    <div className="w-full  h-auto min-h-screen flex flex-col  justify-center items-center bg-slate-200">
+      <h2 className="title">Create Product</h2>
+      <div className="text-green-600 font-semibold text-lg">{message}</div>
       <form
         encType="multipart/form-data"
-        className="flex flex-col w-4/5 bg-slate-400 h-4/6 p-5 rounded-xl justify-center items-center"
+        className="h-auto flex flex-col w-96  bg-white  p-3 rounded-xl justify-center items-center gap-2"
         onSubmit={handleSubmit}
       >
-        {/* left part */}
-        <div className="flex w-full bg-slate-400 h-full p-5 rounded-xl">
-          <div className="w-1/2 p-2 flex flex-col gap-3 ">
-            <div className="flex flex-col">
-              <label htmlFor="">Name</label>
-              <input
-                type="text"
-                placeholder="Name of The Product"
-                className="p-1 outline-cyan-300 rounded-md "
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="">Description:s</label>
-              <textarea
-                onChange={(e) => setDescription(e.target.value)}
-                className="p-1 outline-cyan-300 rounded-md "
-                cols={2}
-                placeholder="description about the product"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label htmlFor="">price:</label>
-              <input
-                onChange={(e) => setPrice(e.target.value)}
-                type="number"
-                placeholder="Price of the product"
-                className="p-1 outline-cyan-300 rounded-md "
-              />
-            </div>
-
-            <div className="flex w-full gap-4 mt-2 ">
-              <label htmlFor="category" className="font-semibold text-sm">
-                Category:
-              </label>
-              <select
-                id="category"
-                onChange={(e) => setCategory(e.target.value)}
-                className="border font-semibold text-sm"
-                required
-              >
-                <option value="" className="">
-                  Select Category
-                </option>
-                <option value="Electronics">Electronics</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Furniture">Furniture</option>
-                <option value="Sports & Outdoors">Sports & Outdoors</option>
-                <option value="Beauty & Personal Care">
-                  Beauty & Personal Care
-                </option>
-              </select>
-            </div>
-          </div>
-          {/* right part */}
-          <div className="w-4/5 h-full flex  items-start  ">
-            <div className="">
-              <label htmlFor="file">Image 1:</label>
-              <label
-                htmlFor="fileInput1"
-                type="button"
-                id="file1"
-                className="flex justify-center items-center ml-1 h-7 w-40 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-2 py-1.5 text-center "
-              >
-                Choose an image
-              </label>
-              <input
-                accept=".png,.jpg,.jpeg"
-                type="file"
-                id="fileInput1"
-                onChange={(e) => handleImageChange(e, 0)}
-                className="invisible"
-              />
-              <div className="border-4 w-64 h-48 rounded-lg ">
-                {selectedImages[0] && (
-                  <div className="w-full object-contain h-full">
-                    <img
-                      className="rounded-lg h-full w-full object-cover"
-                      src={selectedImages[0]}
-                      alt="Selected 1"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Second Image Upload */}
-            <div className="">
-              <label htmlFor="file">Image 2:</label>
-              <label
-                htmlFor="fileInput2"
-                type="button"
-                id="file2"
-                className="flex justify-center items-center ml-1 h-7 w-40 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-2 py-1.5 text-center "
-              >
-                Choose an image
-              </label>
-              <input
-                accept=".png,.jpg,.jpeg"
-                type="file"
-                id="fileInput2"
-                onChange={(e) => handleImageChange(e, 1)}
-                className="invisible"
-              />
-              <div className="border-4 w-64 h-48 rounded-lg">
-                {selectedImages[1] && (
-                  <div className="w-full object-contain h-full">
-                    <img
-                      className="rounded-lg h-full w-full object-cover"
-                      src={selectedImages[1]}
-                      alt="Selected 2"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          {/*  */}
+        <div className="w-full p-2 flex flex-col borderColroDb">
+          <label htmlFor="">Name</label>
+          <input
+            type="text"
+            placeholder="Name of The Product"
+            className=" p-1 outline-cyan-300 rounded-md   "
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
+        <div className="w-full p-2 flex flex-col ">
+          <label htmlFor="">About Item:</label>
+          <ReactQuill value={aboutitem} onChange={handleAboutItemChange} />
+        </div>
+        <div className="w-full p-2 flex flex-col ">
+          <label htmlFor="">Product information:</label>
+          <ReactQuill value={productinfo} onChange={handleInfoChange} />
+        </div>
+        <div className="w-full p-2 flex flex-col ">
+          <label htmlFor="">Product Description :</label>
+          <ReactQuill value={description} onChange={handleDescChange} />
+        </div>
+        <div className="w-full p-2 flex flex-col borderColroDb">
+          <label htmlFor="">price:</label>
+          <input
+            onChange={(e) => setPrice(e.target.value)}
+            type="number"
+            step="0.01"
+            placeholder="Price of the product"
+            className="p-1 outline-cyan-300 rounded-md "
+          />
+        </div>
+        <div className="w-full p-2 flex  gap-4 mt-2 h-10 ">
+          <label htmlFor="category" className="font-semibold text-sm">
+            Category:
+          </label>
+          <select
+            id="category"
+            onChange={(e) => setCategory(e.target.value)}
+            className="border font-semibold text-sm outline-none rounded-md "
+            required
+          >
+            <option value="" className="">
+              Select Category
+            </option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Sports & Outdoors">Sports & Outdoors</option>
+            <option value="Books">Books</option>
+            <option value="Beauty & Personal Care">
+              Beauty & Personal Care
+            </option>
+          </select>
+        </div>
+        <div className="w-full p-2 h-auto imageuploadCont">
+          <div className="text-red-600 font-semibold">{fileLimites}</div>
 
-        <button
-          type="submit"
-          className="flex justify-center items-center w-40 h-9 text-white bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-2 py-1.5 text-center "
-        >
-          Submit Item
+          <label htmlFor="file">Select Images:</label>
+          <input
+            type="file"
+            id="fileupload"
+            onChange={handleFile}
+            accept=".jpg, .png, .webp"
+            multiple
+            max={5}
+            className="hidden"
+            required
+          />
+          <label
+            htmlFor="fileupload"
+            className="fileupload bg-blue-500 hover:bg-blue-400 hover:text-white p-1 rounded-lg"
+          >
+            Upload File
+          </label>
+          <div className="imagePreviewCont bg-slate-100 ">
+            {file &&
+              file.map((selectedFile, idx) => (
+                <div key={idx} className="border-4 w-full object-contain ">
+                  <img
+                    className="rounded-lg h-full w-full object-cover"
+                    src={URL.createObjectURL(selectedFile)}
+                    alt={`Preview ${idx + 1}`}
+                    name="imageUrl"
+                    multiple
+                  />
+                </div>
+              ))}
+
+            {file.length === 0 && (
+              <div className="imageUploadCont">Upload image</div>
+            )}
+          </div>
+        </div>
+        {/*  */}
+        <button type="submit" className="button">
+          <span className="button__text">Add Item</span>
+          <span className="button__icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              stroke="currentColor"
+              height="24"
+              fill="none"
+              className="svg"
+            >
+              <line y2="19" y1="5" x2="12" x1="12"></line>
+              <line y2="12" y1="12" x2="19" x1="5"></line>
+            </svg>
+          </span>
         </button>
       </form>
     </div>

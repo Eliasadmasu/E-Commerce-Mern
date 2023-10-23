@@ -1,0 +1,13 @@
+.imgs {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.swiperMain {
+  height: 30rem;
+}
+.swiperSlider {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
