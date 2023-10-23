@@ -1,0 +1,13 @@
+.minmaxmain {
+  margin-left: 10px;
+}
+
+.labelTitle {
+  font-weight: 600;
+}
+.minmax {
+  display: flex;
+  background-color: rgb(224, 224, 224);
+  padding: 0 12px;
+  width: 100px;
+}

@@ -1,0 +1,77 @@
+.replyWholeContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.replyCont {
+  display: flex;
+  flex-direction: column;
+}
+.replyDetail {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+.reply {
+  display: flex;
+  gap: 5px;
+  border-radius: 30px;
+  padding: 6px;
+  align-items: start;
+}
+.reply-username {
+  color: #004d80;
+  font-weight: 600;
+}
+
+.replyInput {
+  border: 1px solid;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.replyWholeContainer > form {
+  display: flex;
+  gap: 10px;
+}
+.replybtn {
+  font-weight: 600;
+}
+.usernameandtextforreplyCont {
+  display: flex;
+  flex-direction: column;
+}
+.Replydate {
+  color: black;
+  font-size: 12px;
+  font-weight: 400;
+}
+.reply-username {
+  display: flex;
+  gap: 6px;
+}
+.replyDeleteBtn {
+  font-size: 11px;
+  color: rgb(165, 0, 0);
+  cursor: pointer;
+}
+.userImg {
+  width: 45px;
+  height: 45px;
+  box-shadow: 0 0 3px rgb(150, 150, 150);
+  border-radius: 50%;
+}
+.usernameAnddate {
+  display: flex;
+  gap: 4px;
+}
+.mainReplytext {
+  font-size: 15px;
+  width: 400px;
+  overflow-wrap: break-word;
+}
+.showmoreBtn {
+  padding: 2px;
+  font-size: 13px;
+  font-weight: 600;
+}

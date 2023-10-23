@@ -55,7 +55,7 @@ const SignUp = () => {
       {error}
       <form
         onSubmit={handleSubmit}
-        className="border-2 border-solid flex flex-col justify-center w-2/6 items-center gap-2 rounded-2xl p-5 "
+        className="border-2 border-solid flex flex-col justify-center w-2/6 items-center gap-2 rounded-2xl p-5  bg-white"
       >
         <div className="text-red-600 font-semibold">{error}</div>
         <h2 className="text-2xl mb-1">Create Account</h2>

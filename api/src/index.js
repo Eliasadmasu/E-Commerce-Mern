@@ -5,6 +5,9 @@ import helmet from "helmet";
 import cors from "cors";
 import { router } from "./routes/UserRoute.js";
 import { productRouter } from "./routes/ProductRoute.js";
+import { CartRouter } from "./routes/ShoppingCartRoute.js";
+import { DashboardRouter } from "./routes/dashboardstatRoute.js";
+import { ProfileRouter } from "./routes/profileRoute.js";
 
 const app = express();
 
@@ -17,7 +20,6 @@ app.use(express.json());
 const corsOptions = {
   origin: "http://localhost:3000", // Allow requests from localhost:3000
   credentials: true, // Enable CORS credentials (e.g., cookies)
-  optionsSuccessStatus: 204, // Respond with a 204 status for preflight requests
 };
 
 // Middleware for handling CORS
@@ -26,11 +28,26 @@ app.use(cors(corsOptions));
 // Helmet for security headers
 app.use(helmet());
 
-app.use(express.static("public"));
+app.use(
+  "/public",
+  express.static("public", {
+    setHeaders: (res) => {
+      res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+    },
+  })
+);
 
 app.use("/api", router);
 //product
 app.use("/product", productRouter);
+//cart
+app.use("/cart", CartRouter);
+
+//cart
+app.use("/dashboard", DashboardRouter);
+
+//user
+app.use("/user", ProfileRouter);
 
 const PORT = process.env.PORT || 3001;
 

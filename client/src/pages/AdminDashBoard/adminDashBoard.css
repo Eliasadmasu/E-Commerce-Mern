@@ -1,0 +1,84 @@
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.flex > input {
+  border: 1px solid rgb(124, 124, 124);
+  width: 100%;
+  padding: 10px;
+}
+.flex > textarea {
+  border: 1px solid rgb(124, 124, 124);
+}
+.imagePreviewCont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 10px;
+  min-height: 100px;
+  border: 2px dotted gray;
+}
+.imageUploadCont {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(221, 221, 221);
+}
+
+/* ?button css */
+.button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #4a90e2; /* Dodger Blue border */
+  background-color: #6495ed; /* Cornflower Blue background color */
+}
+
+.button .button__text {
+  transform: translateX(30px);
+  color: #fff; /* White text color */
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #4a90e2; /* Dodger Blue icon background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.button .svg {
+  width: 30px;
+  stroke: #fff; /* White stroke color */
+}
+
+.button:hover {
+  background: #4169e1; /* Royal Blue background color on hover */
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button:active .button__icon {
+  background-color: #1e90ff; /* Dodger Blue icon background color on active */
+}
+
+.button:active {
+  border: 1px solid #1e90ff; /* Dodger Blue border color on active */
+}

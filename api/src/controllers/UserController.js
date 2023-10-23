@@ -93,7 +93,7 @@ const UserLogin = async (req, res) => {
     const accessToken = generateAccessToken({ role, Id });
     const refreshToken = generateRefreshToken({ role, Id });
 
-    return res.status(200).json({ accessToken, refreshToken, existingUser });
+    return res.status(200).json({ accessToken, refreshToken, role });
   } catch (error) {
     console.error("Error during login:", error);
     return res.status(500).json({ message: "Internal server error." });
@@ -122,10 +122,6 @@ const refreshToken = async (req, res) => {
       return res.status(401).json({ message: "Invalid refresh token." });
     }
 
-    console.log({
-      decodedRtRole: decoded.role,
-      decodedRtId: decoded.Id,
-    });
     const accessToken = generateAccessToken({
       decodedRtRole: decoded.role,
       decodedRtId: decoded.Id,

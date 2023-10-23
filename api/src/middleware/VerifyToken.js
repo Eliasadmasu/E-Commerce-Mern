@@ -17,7 +17,6 @@ const verifyToken = (req, res, next) => {
 
       // Attach the decoded user data to the request object for further use
 
-      console.log(decoded);
       req.user = decoded;
       next();
     }

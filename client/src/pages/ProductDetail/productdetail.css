@@ -1,0 +1,342 @@
+.productDetailcont {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-bottom: 10px;
+}
+
+.imagedetail {
+  width: 50%;
+  height: auto;
+  display: flex;
+  gap: 10px;
+}
+.imageleft {
+  width: 4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.active {
+  border: 2px solid #f1be16;
+}
+.imageright {
+  width: 35rem;
+  height: auto;
+  max-height: 33rem;
+}
+.magnifier {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.productDetailimgleft {
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+}
+
+.productDetailimgright {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.otherDetails {
+  padding: 10px;
+  width: 50%;
+}
+.titleF {
+  font-size: 24px;
+  font-weight: 500;
+}
+.descD {
+  border-bottom: 1px solid rgba(173, 173, 173, 0.637);
+  font-size: 20px;
+  font-weight: 400;
+}
+.priceD {
+  color: rgb(87, 87, 87);
+  font-size: 15px;
+  border-top: 1px solid rgba(173, 173, 173, 0.637);
+  border-bottom: 1px solid rgba(173, 173, 173, 0.637);
+  padding: 10px;
+}
+.priceD > span {
+  color: rgb(196, 70, 70);
+  font-size: 18px;
+  font-weight: 500;
+}
+.logosDtMain {
+  display: flex;
+  gap: 10px;
+}
+.logosDt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  font-size: 15px;
+  color: rgb(62, 104, 243);
+  cursor: pointer;
+}
+.deliver {
+  display: flex;
+  flex-direction: column;
+}
+.deliver-primary {
+  font-weight: 600;
+  font-size: 18px;
+}
+.deliver-second {
+  font-weight: 400;
+  color: rgb(87, 87, 87);
+  font-size: 16px;
+}
+.logosDt > svg {
+  color: black;
+  background-color: rgb(226, 226, 226);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+}
+/* add to cart */
+.CartBtn {
+  width: 140px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+.butnCont {
+  width: 100%;
+  margin-top: 20px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.borderSlice {
+  background-color: rgba(173, 173, 173, 0.637);
+  border-radius: 20px;
+  height: 3px;
+  width: 100%;
+}
+.productInfoandDescCont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.primaryTxt {
+  font-size: 16px;
+  font-weight: 600;
+}
+.descCont {
+  font-size: 15px;
+  line-height: 25px;
+}
+.productInfo {
+  font-size: 14px;
+  line-height: 25px;
+}
+.productInfo > p {
+  border: 1px solid rgb(179, 179, 179);
+  border-right: none;
+  border-left: none;
+}
+.productDesc {
+  font-size: 14px;
+  line-height: 25px;
+  border-bottom: 1px solid rgb(179, 179, 179);
+}
+.productAbout {
+  font-size: 15px;
+  line-height: 25px;
+  color: #353535;
+}
+.magnifier-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+/* comment */
+.addCommentcont {
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+}
+.commentInput {
+  border: 1px solid #353535;
+  padding: 10px;
+  border-radius: 20px;
+  text-wrap: wrap;
+  width: 500px;
+  max-width: 500px;
+}
+.commenterName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #034dbd;
+}
+.commentsCont {
+  display: flex;
+  gap: 20px;
+  /* padding: 10px; */
+}
+.circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.circle > img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+/* !!! */
+/* !!! */
+.commetntWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+}
+.createCommetnBtn {
+  display: flex;
+  gap: 4px;
+}
+.username_date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.commentCreatedAt {
+  font-size: 14px;
+  font-weight: 400;
+}
+.commentTxt {
+  font-size: 14px;
+  font-weight: 500;
+  overflow-wrap: break-word;
+}
+.commentButton {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  flex-direction: column;
+}
+.singlecommetntWrapper {
+  padding: 10px;
+  border-bottom: 1px solid #dadada;
+}
+.commentActions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.commentbtnCont {
+  display: flex;
+  gap: 10px;
+}
+.Editpointer {
+  cursor: pointer;
+  font-size: 11px;
+}
+.updatebutton {
+  cursor: pointer;
+  font-size: 11px;
+}
+.discardUpdate {
+  cursor: pointer;
+  font-size: 11px;
+}
+.user_text_button {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 300px;
+}
+.updateCommentInput {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 0 4px;
+  height: 40px;
+  width: 100%;
+}
+.EditandDelete {
+  display: flex;
+  gap: 10px;
+}
+.noreview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ratingAndCommentCont {
+  display: flex;
+}
+.ratingCont {
+  width: 40%;
+}

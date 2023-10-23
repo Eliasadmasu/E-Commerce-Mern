@@ -8,6 +8,10 @@ const UserSchema = mongoose.Schema({
   email: { type: String, unique: true }, // Email Address
   phoneNumber: String, // Phone Number
   gender: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const UserModel = mongoose.model("user", UserSchema);

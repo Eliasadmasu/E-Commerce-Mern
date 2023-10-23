@@ -1,0 +1,43 @@
+.successWrapper {
+  background-color: rgb(9, 33, 61);
+  height: calc(100vh - 66.89px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.mainSuccessMsg {
+  font-size: 50px;
+  color: white;
+  font-weight: 600;
+}
+.SecondSuccessMsg {
+  color: white;
+}
+.thirdSuccessMsg {
+  color: white;
+  font-size: 15px;
+}
+.logo {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo > svg {
+  width: 100%;
+  height: 100%;
+  color: rgb(23, 218, 23);
+}
+.directME {
+  background-color: rgb(21, 146, 10);
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  color: white;
+}
+.directME:hover {
+  background-color: rgb(32, 196, 17);
+}
