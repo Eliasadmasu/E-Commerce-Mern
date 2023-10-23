@@ -1,3 +1,3 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://e-commerce-mern-lilac.vercel.app/";
 
 export default API_URL;
