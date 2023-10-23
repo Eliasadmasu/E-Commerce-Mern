@@ -23,7 +23,8 @@ const corsOptions = {
 };
 
 // Middleware for handling CORS
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 // Helmet for security headers
 app.use(helmet());
