@@ -220,8 +220,8 @@ const CheckoutStripe = async (req, res) => {
       metadata: {
         userId: decodedRtId, // Include user identifier in metadata
       },
-      success_url: "http://localhost:3000/payment-success",
-      cancel_url: "http://localhost:3000/product",
+      success_url: "https://e-commerce-mern-henna.vercel.app/payment-success",
+      cancel_url: "https://e-commerce-mern-henna.vercel.app/product",
     });
 
     res.json({ url: session.url, items });
