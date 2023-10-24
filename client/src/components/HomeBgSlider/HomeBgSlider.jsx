@@ -17,10 +17,10 @@ const HomeBgSlider = () => {
       navigation={{ nextEl: "#swiper-forward", prevEl: "#swiper-back" }}
       className="relative swiperMain"
       centeredSlides={true}
-      // autoplay={{
-      //   delay: 3500,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay={{
+         delay: 3500,
+         disableOnInteraction: false,
+       }}
     >
       <button id="swiper-back" className="absolute z-50 bottom-2/4">
         <BsChevronLeft size={50} className="text-black" />
