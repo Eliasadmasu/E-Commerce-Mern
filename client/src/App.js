@@ -21,7 +21,6 @@ import PaymentSuccess from "./pages/CartItems/CheckOut/PaymentSuccess";
 import OrderDetail from "./pages/Admin/Orders/OrderDetail/OrderDetail";
 import Profile from "./pages/Admin/Profile/Profile";
 import UserProfile from "./pages/UserProfile/UserProfile";
-import Footer from "./components/Footer/Footer";
 
 function App() {
   const role = Cookies.get("role");
@@ -72,7 +71,6 @@ function App() {
         )}
         <Route path="*" element={<Error404 />} />
       </Routes>
-      <Footer />
     </div>
   );
 }
