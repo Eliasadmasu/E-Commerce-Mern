@@ -10,7 +10,6 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Admin from "./pages/Admin/Admin";
 import Orders from "./pages/Admin/Orders/Orders";
 import Customers from "./pages/Admin/Customers/Customers";
-import Reports from "./pages/Admin/Reports/Reports";
 import Product from "./pages/Admin/Product/Product";
 import DashBoard from "./pages/Admin/DashBorad/DashBoard";
 import UpdateProducts from "./pages/Admin/UpdateProducts/UpdateProducts";
@@ -21,7 +20,6 @@ import PaymentSuccess from "./pages/CartItems/CheckOut/PaymentSuccess";
 import OrderDetail from "./pages/Admin/Orders/OrderDetail/OrderDetail";
 import Profile from "./pages/Admin/Profile/Profile";
 import UserProfile from "./pages/UserProfile/UserProfile";
-import Footer from "./components/Footer/Footer";
 
 function App() {
   const role = Cookies.get("role");
@@ -72,7 +70,6 @@ function App() {
         )}
         <Route path="*" element={<Error404 />} />
       </Routes>
-      <Footer />
     </div>
   );
 }
