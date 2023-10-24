@@ -10,7 +10,6 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Admin from "./pages/Admin/Admin";
 import Orders from "./pages/Admin/Orders/Orders";
 import Customers from "./pages/Admin/Customers/Customers";
-import Reports from "./pages/Admin/Reports/Reports";
 import Product from "./pages/Admin/Product/Product";
 import DashBoard from "./pages/Admin/DashBorad/DashBoard";
 import UpdateProducts from "./pages/Admin/UpdateProducts/UpdateProducts";

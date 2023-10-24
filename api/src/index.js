@@ -18,7 +18,9 @@ connectToDatabase();
 app.use(express.json());
 
 const corsOptions = {
+
   origin: "https://e-commerce-mern-henna.vercel.app", // Allow requests from localhost:3000
+
   credentials: true, // Enable CORS credentials (e.g., cookies)
 };
 
